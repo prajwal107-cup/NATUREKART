@@ -1,53 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NatureKart | Eco Product Marketplace</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NATUREKART — Eco Product Marketplace</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>🌿 NatureKart</h1>
-    <nav>
-      <button id="loginBtn">Seller Login</button>
-    </nav>
+  <header class="topbar">
+    <div class="logo">
+      <img src="" alt="" aria-hidden="true">
+      <h1>NATUREKART</h1>
+    </div>
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Search eco products, e.g. bamboo toothbrush" />
+      <select id="sortSelect" title="Sort">
+        <option value="popular">Sort: Popular</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+    <div class="top-actions">
+      <button id="cartBtn" class="btn">Cart (<span id="cartCount">0</span>)</button>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Buy & Sell Eco-Friendly Products</h2>
-    <p>Support sustainability — every small choice makes a big impact.</p>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h2>Shop sustainable. Save the planet.</h2>
+        <p>Verified eco-friendly products — reusable, recycled, compostable. Curated for Bengaluru buyers.</p>
+        <a id="shopNow" class="cta">Shop Now</a>
+      </div>
+      <div class="hero-img" aria-hidden="true"></div>
+    </section>
 
-  <section id="product-section">
-    <h2>Popular Eco-Friendly Products</h2>
-    <div class="product-container" id="productContainer"></div>
-  </section>
+    <section class="controls">
+      <div class="filters">
+        <label><input type="checkbox" id="filterAmazon" checked /> Amazon</label>
+        <label><input type="checkbox" id="filterFlipkart" checked /> Flipkart</label>
+        <label><input type="checkbox" id="filterMeesho" checked /> Meesho</label>
+      </div>
+      <div class="summary">
+        <strong>Showing <span id="resultsCount">0</span> products</strong>
+      </div>
+    </section>
 
-  <section id="login-section" class="hidden">
-    <h2>Seller Dashboard</h2>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
+    <section id="productGrid" class="grid"></section>
 
-    <div id="dashboard" class="hidden">
-      <h3>Welcome Seller 👋</h3>
-      <form id="addProductForm">
-        <input type="text" id="pname" placeholder="Product Name" required>
-        <input type="number" id="pprice" placeholder="Price ₹" required>
-        <input type="text" id="pimage" placeholder="Image URL" required>
-        <input type="text" id="plink" placeholder="Available On (Amazon / Flipkart / Meesho)" required>
-        <button type="submit">Add Product</button>
-      </form>
+    <section class="footer-cta">
+      <h3>Bring eco home with NATUREKART</h3>
+      <p>Local delivery in Bengaluru — Verified sellers, secure checkout, easy returns.</p>
+      <a class="cta" onclick="scrollToTop()">Back to top</a>
+    </section>
+  </main>
+
+  <!-- Product Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <button class="close" id="modalClose">&times;</button>
+      <div id="modalBody"></div>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    <p>© 2025 NatureKart | Made in Bengaluru 🌱</p>
-  </footer>
+  <!-- Cart Slide -->
+  <div id="cartSlide" class="cart-slide">
+    <div class="cart-head">
+      <h3>Your Cart</h3>
+      <button id="closeCart" class="close">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: ₹<span id="cartTotal">0</span></div>
+      <button id="checkoutBtn" class="cta">Checkout</button>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
 
   <script src="script.js"></script>
 </body>
-        </html>
+                                                                             </html>
