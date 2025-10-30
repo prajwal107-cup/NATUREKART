@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NatureKart | Eco Product Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌿 NatureKart</h1>
+    <nav>
+      <button id="loginBtn">Seller Login</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Buy & Sell Eco-Friendly Products</h2>
+    <p>Support sustainability — every small choice makes a big impact.</p>
+  </section>
+
+  <section id="product-section">
+    <h2>Popular Eco-Friendly Products</h2>
+    <div class="product-container" id="productContainer"></div>
+  </section>
+
+  <section id="login-section" class="hidden">
+    <h2>Seller Dashboard</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <div id="dashboard" class="hidden">
+      <h3>Welcome Seller 👋</h3>
+      <form id="addProductForm">
+        <input type="text" id="pname" placeholder="Product Name" required>
+        <input type="number" id="pprice" placeholder="Price ₹" required>
+        <input type="text" id="pimage" placeholder="Image URL" required>
+        <input type="text" id="plink" placeholder="Available On (Amazon / Flipkart / Meesho)" required>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 NatureKart | Made in Bengaluru 🌱</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+        </html>
