@@ -1,105 +1,76 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background: #f5fff5;
-  color: #333;
+:root{
+  --accent:#2f8f4a;
+  --accent-dark:#276f3a;
+  --muted:#666;
+  --bg:#f6f7f4;
+  --card:#ffffff;
+  --glass: rgba(255,255,255,0.85);
+  --shadow: 0 6px 22px rgba(0,0,0,0.08);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-header {
-  background: #2e7d32;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 30px;
-  align-items: center;
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#f3fbf6,#f6f7f4);color:#111}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--card);
+  border-bottom:1px solid #eee;position:sticky;top:0;z-index:40;box-shadow:var(--shadow)
 }
-
-header h1 {
-  font-size: 28px;
+.logo{display:flex;align-items:center;gap:10px}
+.logo h1{margin:0;color:var(--accent);font-size:20px;letter-spacing:1px}
+.search-wrap{display:flex;gap:10px;flex:1;max-width:700px;margin:0 20px}
+.search-wrap input[type="search"]{
+  flex:1;padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;outline:none
 }
+.search-wrap select{padding:8px;border-radius:8px;border:1px solid #ddd;background:#fff}
+.top-actions .btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
 
-nav button {
-  background: #fff;
-  color: #2e7d32;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+.hero{display:grid;grid-template-columns:1fr 420px;gap:20px;padding:34px 20px;align-items:center}
+.hero-inner h2{font-size:32px;margin:0 0 8px;color:var(--accent-dark)}
+.hero-inner p{margin:0 0 16px;color:var(--muted)}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;cursor:pointer}
+.hero-img{height:220px;border-radius:14px;background:linear-gradient(135deg,#dff6e4,#eafaf0);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-dark)}
+
+.controls{display:flex;justify-content:space-between;padding:12px 20px;gap:10px}
+.controls .filters label{margin-right:12px;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;padding:20px}
+
+.card{background:var(--card);border-radius:12px;padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;min-height:260px}
+.card img{width:100%;height:120px;object-fit:cover;border-radius:8px;background:#fff}
+.card h4{margin:0;font-size:16px}
+.price{font-weight:700;color:var(--accent-dark)}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{padding:6px 8px;border-radius:8px;font-size:12px;background:#eef9f0;color:var(--accent-dark);border:1px solid #d9f0df}
+
+.card .actions{margin-top:auto;display:flex;gap:8px}
+.btn-plain{background:#fff;border:1px solid #ddd;padding:8px 10px;border-radius:8px;cursor:pointer}
+.btn-primary{background:var(--accent);color:#fff;border:none;padding:8px 10px;border-radius:8px;cursor:pointer}
+
+.footer-cta{background:linear-gradient(90deg,#f0fff6,#f6fbf9);padding:24px;border-top:1px solid #eee;text-align:center;margin-top:18px;border-radius:12px;margin:20px}
+
+.modal{position:fixed;display:none;inset:0;align-items:center;justify-content:center;z-index:60}
+.modal .modal-content{background:var(--card);width:min(920px,95%);padding:18px;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,0.12);max-height:90vh;overflow:auto}
+.modal .close{background:#eee;border:0;padding:8px 10px;border-radius:8px;cursor:pointer;float:right}
+
+.cart-slide{position:fixed;right:-420px;top:0;height:100%;width:420px;background:var(--card);box-shadow:-10px 0 30px rgba(0,0,0,0.12);z-index:80;padding:16px;transition:right .25s}
+.cart-slide.open{right:0}
+.cart-head{display:flex;align-items:center;justify-content:space-between}
+.cart-items{max-height:60vh;overflow:auto;margin-top:12px}
+.cart-item{display:flex;gap:12px;padding:10px;border-bottom:1px solid #f1f1f1}
+.cart-item img{width:60px;height:60px;border-radius:8px;object-fit:cover}
+.qty-controls{display:flex;gap:8px;align-items:center}
+.cart-footer{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(180deg,transparent,#fff);display:flex;align-items:center;justify-content:space-between}
+
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);display:none;z-index:70}
+
+.review-list{margin-top:12px}
+.review{border-left:3px solid #e6f4ea;padding:8px;margin-bottom:8px;background:#fafafa;border-radius:6px}
+.star{color:#f6b042;margin-right:4px}
+
+.small{font-size:13px;color:var(--muted)}
+.note{font-size:12px;color:#555;background:#fff;padding:8px;border-radius:8px}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:12px}
+  .cart-slide{width:100%;right:-100%}
 }
-
-.hero {
-  text-align: center;
-  padding: 50px;
-  background: linear-gradient(135deg, #a8e063, #56ab2f);
-  color: white;
-  border-radius: 0 0 50px 50px;
-}
-
-.product-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 30px;
-}
-
-.product-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 15px;
-  transition: transform 0.2s ease;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
-}
-
-.product-card img {
-  width: 100%;
-  height: 180px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.product-card h3 {
-  color: #2e7d32;
-}
-
-.review {
-  font-size: 14px;
-  color: #555;
-}
-
-#login-section {
-  padding: 30px;
-  text-align: center;
-}
-
-#loginForm input, #addProductForm input {
-  padding: 8px;
-  margin: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#loginForm button, #addProductForm button {
-  background: #2e7d32;
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-}
-
-.hidden {
-  display: none;
-}
-
-footer {
-  text-align: center;
-  background: #2e7d32;
-  color: white;
-  padding: 15px;
-  margin-top: 30px;
-  }
